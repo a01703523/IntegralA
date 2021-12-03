@@ -12,6 +12,7 @@
 
 using namespace std;
 
+//Lee el archivo principal y lo mete a un vector minutes
 void read(vector <Pelicula> &minutes){
     ifstream archivo("imdbMovies.csv");
     string linea;
@@ -35,6 +36,7 @@ void read(vector <Pelicula> &minutes){
     }
 }
 
+//Escribe un archivo nuevo con los datos en orden
 void writeSort(vector <Pelicula> &vector){
     ofstream pel_ordenadas("timeSortedMovies.csv");
     pel_ordenadas << "Title,Duration,Country,Director,Avg_vote" << endl;
@@ -44,6 +46,7 @@ void writeSort(vector <Pelicula> &vector){
     pel_ordenadas.close();
 }
 
+//Lee un archivo de respaldo y mete los objetos a un vector
 void read2(vector <Pelicula> &minutes){
     ifstream archivo("timeSortedMovies.csv");
     string linea;
@@ -67,6 +70,8 @@ void read2(vector <Pelicula> &minutes){
     }
 }
 
+
+//Se implementan todas las funciones con una interacción con el usuario
 int main(){
 
     cout<<"\n\nHola! Bienvenido a su programa para ver peliculas extranjeras cortas!"<<endl;
@@ -81,7 +86,7 @@ int main(){
         read(minutes);
 
         Sorts <Pelicula> min;
-        min.insertionSort(minutes); 
+        min.insertionSort(minutes); //Ordena por duración de minutos
         for(int i = 0; i < minutes.size(); i++){
             cout << minutes[i].getDuration() << " minutos - " << minutes[i].getCountry() << endl;
         }
@@ -93,7 +98,7 @@ int main(){
         writeSort(minutes);
         List<Pelicula> list1;
         list1.read2();
-        cout<<list1.buscaPais(eleccion);
+        cout<<list1.buscaPais(eleccion); //Busca el país seleccionado por el usuario
 
         cout<<"\nSi quieres ver la lista de peliculas completas,\npuedes consultar el archivo de timeSortedMovies.csv\n\n";
 

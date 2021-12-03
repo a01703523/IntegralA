@@ -1,5 +1,3 @@
-//Salvador Santana Blanco - A01703523
-
 #ifndef PELICULAS_H
 #define PELICULAS_H 
 

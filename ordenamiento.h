@@ -1,5 +1,3 @@
-//Salvador Santana Blanco - A01703523
-
 #ifndef SORTS_H
 #define SORTS_H 
 
@@ -31,4 +29,5 @@ void Sorts<T>::insertionSort(std::vector<T> &v) {
 		}
 	}
 }
+
 #endif
